@@ -14,7 +14,7 @@ var spotify = new Spotify(keys.spotify);
 var inquirer = require("inquirer");
 
 //variable
-var inputString = process.argv;
+//var inputString = process.argv;
 
 //---------------------------------------------------------------------------------------------
 //Getting what user wants to do with inquirer and execute the corresponding function
@@ -69,7 +69,7 @@ inquirer
                     }
                 ]).then(function(reply){
                     var queryUrl = "http://www.omdbapi.com/?t=" + reply.movieName + "&y=&plot=short&apikey=trilogy";
-                    if (movieName === " ") {
+                    if (reply.movieName === "") {
                         var queryUrl = "http://www.omdbapi.com/?t=mr.nobody&y=&plot=short&apikey=trilogy";
                         // console.log(queryUrl);
                         axios.get(queryUrl).then(
@@ -85,7 +85,7 @@ inquirer
                         );
                     }
                 });
-                
+
         } 
         
         //spotify-this-song
@@ -141,6 +141,9 @@ inquirer
     
                 var dataArr = data.split(",");
                 var command = dataArr[0];
+
+                console.log(command);
+                console.log("---------------------");
                 if (command === "spotify-this-song") {
                     song = dataArr[1];
                     spotifyThisSong(song);
