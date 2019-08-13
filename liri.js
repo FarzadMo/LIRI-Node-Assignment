@@ -146,14 +146,11 @@ inquirer
                 console.log("---------------------");
                 if (command === "spotify-this-song") {
                     song = dataArr[1];
-                    spotifyThisSong(song);
                 } else if (command === "movie-this") {
                     movie = dataArr[1];
-                    movieThis(movie);
                 } else if (command === "concert-this") {
                     artist = dataArr[1];
                     console.log(artist);
-                    concertThis(artist);
                 }
             });
         }
